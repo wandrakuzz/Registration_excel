@@ -21,6 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+    Route::view('/home', 'home')->middleware('auth');
+    Route::view('/admin', 'admin');
+    Route::view('/user', 'user');
+
+    Route::post('/admin/import', 'Admin\ImportController@import')->name('excel.import');
+
     Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
     Route::get('/login/user', 'Auth\LoginController@showUserLoginForm');
     Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
@@ -31,9 +37,7 @@ Auth::routes();
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::post('/register/user', 'Auth\RegisterController@createUser');
 
-    Route::view('/home', 'home')->middleware('auth');
-    Route::view('/admin', 'admin');
-    Route::view('/user', 'user');
+
 //
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');

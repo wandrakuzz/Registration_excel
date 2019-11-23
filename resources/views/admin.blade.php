@@ -17,6 +17,15 @@
                         You are logged in Admin Dashboard!
                     </div>
                 </div>
+
+                <form method="post" action="{{ route('excel.import') }}" enctype="multipart/form-data">
+                    @csrf
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+                  </div>
+                  <button type="submit" name="button">Upload</button>
+                </form>
             </div>
         </div>
     </div>
