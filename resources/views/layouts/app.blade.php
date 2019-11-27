@@ -55,24 +55,6 @@
                                     <a class="nav-link" href="{{ url('register',[ 'url' => 'admin']) }}">{{ __('Register as Admin') }}</a>
                                 </li>
                             @endif
-
-                            @if (Route::has('register'))
-                                {{-- @if (Request::is('register/admin'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('login',[ 'url' => 'user']) }}">{{ __('Login as User') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('register',[ 'url' => 'user']) }}">{{ __('Register as User') }}</a>
-                                    </li>
-                                @else
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('login',[ 'url' => 'admin']) }}">{{ __('Login as Admin') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('register',[ 'url' => 'admin']) }}">{{ __('Register as Admin') }}</a>
-                                    </li>
-                                @endif --}}
-                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

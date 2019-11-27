@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -22,5 +23,12 @@ class ImportController extends Controller
         Excel::import(new UsersImport, $request->file('file'));
 
         return back()->with('success', 'All is well. Congratulation!!');
+    }
+
+    public function downloadExcel($path)
+    {
+        $path = public_path().'/'.$path;
+
+        return response()->download($path);
     }
 }

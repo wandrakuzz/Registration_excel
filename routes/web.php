@@ -15,14 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
     Route::view('/home', 'home')->middleware('auth');
-    Route::view('/admin', 'admin');
+    Route::get('/admin', 'Admin\AdminController@index');
+    Route::get('/download/{path}', 'Admin\ImportController@downloadExcel')->name('download.template');
     Route::view('/user', 'user');
 
     Route::post('/admin/import', 'Admin\ImportController@import')->name('excel.import');
@@ -36,8 +35,3 @@ Auth::routes();
     Route::post('/login/user', 'Auth\LoginController@userLogin');
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::post('/register/user', 'Auth\RegisterController@createUser');
-
-
-//
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
