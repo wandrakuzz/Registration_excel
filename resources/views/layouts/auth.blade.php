@@ -42,7 +42,7 @@
                             <!-- Authentication Links -->
                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Hi There <span class="caret">{{ Auth::guard(getGuardName())->user()->name }}</span>
+                                    Hi There <span class="caret">{{ optional(Auth::guard(getGuardName())->user())->name }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -66,5 +66,15 @@
                 @yield('content')
             </main>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                setTimeout(function(){
+                   $("div.alert").remove();
+                }, 5000 ); // 5 secs
+
+                });
+        </script>
     </body>
     </html>
